@@ -1,0 +1,806 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>VisualizeND</class>
+ <widget class="QMainWindow" name="VisualizeND">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>700</width>
+    <height>580</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>5000</width>
+    <height>5000</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>PCLViewer</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayoutMainView">
+      <item>
+       <widget class="QVTKWidget" name="qvtkWidget" native="true"/>
+      </item>
+      <item>
+       <widget class="QSlider" name="frameSlider">
+        <property name="font">
+         <font>
+          <strikeout>false</strikeout>
+         </font>
+        </property>
+        <property name="maximum">
+         <number>255</number>
+        </property>
+        <property name="value">
+         <number>0</number>
+        </property>
+        <property name="tracking">
+         <bool>true</bool>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="invertedControls">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayoutColorBar">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayoutMaxTemp">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLineEdit" name="lineEditMaxTemp">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="inputMethodHints">
+             <set>Qt::ImhDigitsOnly</set>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelMaxTemp">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+             </font>
+            </property>
+            <property name="inputMethodHints">
+             <set>Qt::ImhNone</set>
+            </property>
+            <property name="text">
+             <string>(C)</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelColorMap">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>ColorBar</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayoutMinTemp">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="sizeConstraint">
+           <enum>QLayout::SetDefaultConstraint</enum>
+          </property>
+          <item>
+           <widget class="QLineEdit" name="lineEditMinTemp">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="inputMethodHints">
+             <set>Qt::ImhDigitsOnly</set>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+            </property>
+            <property name="dragEnabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelMinTemp">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>(C)</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QProgressBar" name="progressBar">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="inputMethodHints">
+         <set>Qt::ImhNone</set>
+        </property>
+        <property name="value">
+         <number>24</number>
+        </property>
+        <property name="invertedAppearance">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QToolBar" name="toolBar_InOut">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionOpen"/>
+   <addaction name="actionImport_Frame"/>
+   <addaction name="actionExport"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>700</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>Fi&amp;le</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="actionImport_Frame"/>
+    <addaction name="actionExport"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <widget class="QMenu" name="menu_Select_Mode">
+     <property name="title">
+      <string>&amp;Select Mode</string>
+     </property>
+     <addaction name="actionSelect_Points"/>
+    </widget>
+    <widget class="QMenu" name="menuGround_Detection">
+     <property name="title">
+      <string>&amp;Ground Detection</string>
+     </property>
+     <addaction name="actionAuto"/>
+     <addaction name="actionManual"/>
+    </widget>
+    <addaction name="actionAlign"/>
+    <addaction name="menu_Select_Mode"/>
+    <addaction name="actionLabel"/>
+    <addaction name="actionMeasure"/>
+    <addaction name="menuGround_Detection"/>
+   </widget>
+   <widget class="QMenu" name="menuRender">
+    <property name="title">
+     <string>&amp;Render</string>
+    </property>
+    <addaction name="actionRGB"/>
+    <addaction name="actionTemperature"/>
+    <addaction name="actionLabels"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>&amp;View</string>
+    </property>
+    <widget class="QMenu" name="menuColor_Map">
+     <property name="title">
+      <string>Color &amp;Map</string>
+     </property>
+     <addaction name="actionAutumn"/>
+     <addaction name="actionBone"/>
+     <addaction name="actionJet"/>
+     <addaction name="actionWinter"/>
+     <addaction name="actionRainbow"/>
+     <addaction name="actionOcean"/>
+     <addaction name="actionSummer"/>
+     <addaction name="actionSpring"/>
+     <addaction name="actionCool"/>
+     <addaction name="actionHSV"/>
+     <addaction name="actionPink"/>
+     <addaction name="actionHot"/>
+    </widget>
+    <addaction name="menuColor_Map"/>
+    <addaction name="actionColor_Bar"/>
+    <addaction name="separator"/>
+    <addaction name="actionTop"/>
+    <addaction name="actionBottom"/>
+    <addaction name="actionLeft"/>
+    <addaction name="actionRight"/>
+    <addaction name="actionFront"/>
+    <addaction name="actionBack"/>
+    <addaction name="actionPerspective"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menuPlay">
+    <property name="title">
+     <string>P&amp;lay</string>
+    </property>
+    <widget class="QMenu" name="menuRate">
+     <property name="title">
+      <string>Rat&amp;e</string>
+     </property>
+     <addaction name="action_Rate_0_25"/>
+     <addaction name="action_Rate_0_5"/>
+     <addaction name="action_Rate_1_0"/>
+     <addaction name="action_Rate_2_0"/>
+     <addaction name="action_Rate_4_0"/>
+    </widget>
+    <addaction name="actionPlay"/>
+    <addaction name="actionPause"/>
+    <addaction name="actionPrevious"/>
+    <addaction name="actionNext"/>
+    <addaction name="menuRate"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuRender"/>
+   <addaction name="menuPlay"/>
+   <addaction name="menuView"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QToolBar" name="toolBar_Play">
+   <property name="windowTitle">
+    <string>toolBar_2</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionPlay"/>
+   <addaction name="actionPause"/>
+   <addaction name="actionPrevious"/>
+   <addaction name="actionNext"/>
+  </widget>
+  <widget class="QToolBar" name="toolBar_View">
+   <property name="windowTitle">
+    <string>toolBar_2</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionPerspective"/>
+   <addaction name="actionTop"/>
+   <addaction name="actionBottom"/>
+   <addaction name="actionLeft"/>
+   <addaction name="actionRight"/>
+   <addaction name="actionFront"/>
+   <addaction name="actionBack"/>
+  </widget>
+  <widget class="QToolBar" name="toolBar_RGB_Temp">
+   <property name="windowTitle">
+    <string>toolBar_2</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionRGB"/>
+   <addaction name="actionTemperature"/>
+   <addaction name="actionColor_Bar"/>
+  </widget>
+  <action name="actionOpen">
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/open-file-icon.png</normaloff>:/rec/resource/icons/open-file-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Open</string>
+   </property>
+  </action>
+  <action name="actionImport_Frame">
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/import-frame-icon.png</normaloff>:/rec/resource/icons/import-frame-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Import Frame</string>
+   </property>
+  </action>
+  <action name="actionExport">
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/export-as-csv-icon.png</normaloff>:/rec/resource/icons/export-as-csv-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Export As CSV</string>
+   </property>
+   <property name="toolTip">
+    <string>Export As CSV</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/exit-icon.png</normaloff>:/rec/resource/icons/exit-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>E&amp;xit</string>
+   </property>
+  </action>
+  <action name="actionAlign">
+   <property name="text">
+    <string>&amp;Align</string>
+   </property>
+  </action>
+  <action name="actionLabel">
+   <property name="text">
+    <string>&amp;Label</string>
+   </property>
+  </action>
+  <action name="actionMeasure">
+   <property name="text">
+    <string>&amp;Measure</string>
+   </property>
+  </action>
+  <action name="actionRGB">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/rgb-icon.jpeg</normaloff>:/rec/resource/icons/rgb-icon.jpeg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;RGB</string>
+   </property>
+  </action>
+  <action name="actionTemperature">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/temperature-icon.jpeg</normaloff>:/rec/resource/icons/temperature-icon.jpeg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Temperature</string>
+   </property>
+  </action>
+  <action name="actionLabels">
+   <property name="text">
+    <string>&amp;Labels</string>
+   </property>
+  </action>
+  <action name="actionTop">
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/top-view-icon.png</normaloff>:/rec/resource/icons/top-view-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Top</string>
+   </property>
+  </action>
+  <action name="actionBottom">
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/bottom-view-icon.png</normaloff>:/rec/resource/icons/bottom-view-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Bottom</string>
+   </property>
+  </action>
+  <action name="actionLeft">
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/left-view-icon.png</normaloff>:/rec/resource/icons/left-view-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Left</string>
+   </property>
+  </action>
+  <action name="actionRight">
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/right-view-icon.png</normaloff>:/rec/resource/icons/right-view-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Right</string>
+   </property>
+  </action>
+  <action name="actionFront">
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/front-view-icon.png</normaloff>:/rec/resource/icons/front-view-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Front</string>
+   </property>
+  </action>
+  <action name="actionBack">
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/back-view-icon.png</normaloff>:/rec/resource/icons/back-view-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Ba&amp;ck</string>
+   </property>
+  </action>
+  <action name="actionPerspective">
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/perspective-view-icon.png</normaloff>:/rec/resource/icons/perspective-view-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Perspective</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/about-icon.png</normaloff>:/rec/resource/icons/about-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;About</string>
+   </property>
+  </action>
+  <action name="actionPlay">
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/play-button-icon.png</normaloff>:/rec/resource/icons/play-button-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Play</string>
+   </property>
+  </action>
+  <action name="actionPause">
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/pause-button-icon.png</normaloff>:/rec/resource/icons/pause-button-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Pa&amp;use</string>
+   </property>
+   <property name="toolTip">
+    <string>Pause</string>
+   </property>
+  </action>
+  <action name="actionPrevious">
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/previous-button-icon.png</normaloff>:/rec/resource/icons/previous-button-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>P&amp;revious</string>
+   </property>
+  </action>
+  <action name="actionNext">
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/next-button-icon.png</normaloff>:/rec/resource/icons/next-button-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Next</string>
+   </property>
+  </action>
+  <action name="action_Rate_0_25">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;0.25</string>
+   </property>
+  </action>
+  <action name="action_Rate_0_5">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>0.&amp;5</string>
+   </property>
+  </action>
+  <action name="action_Rate_1_0">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;1.0</string>
+   </property>
+  </action>
+  <action name="action_Rate_2_0">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;2.0</string>
+   </property>
+  </action>
+  <action name="action_Rate_4_0">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;4.0</string>
+   </property>
+  </action>
+  <action name="actionAutumn">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/AUTUMN_icon.png</normaloff>:/rec/resource/icons/AUTUMN_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Autumn</string>
+   </property>
+  </action>
+  <action name="actionBone">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/BONE_icon.png</normaloff>:/rec/resource/icons/BONE_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Bone</string>
+   </property>
+  </action>
+  <action name="actionJet">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/JET_icon.png</normaloff>:/rec/resource/icons/JET_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Jet</string>
+   </property>
+  </action>
+  <action name="actionWinter">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/WINTER_icon.png</normaloff>:/rec/resource/icons/WINTER_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Winter</string>
+   </property>
+  </action>
+  <action name="actionRainbow">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/RAINBOW_icon.png</normaloff>:/rec/resource/icons/RAINBOW_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Rainbow</string>
+   </property>
+  </action>
+  <action name="actionOcean">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/OCEAN_icon.png</normaloff>:/rec/resource/icons/OCEAN_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Ocean</string>
+   </property>
+  </action>
+  <action name="actionSummer">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/SUMMER_icon.png</normaloff>:/rec/resource/icons/SUMMER_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Summer</string>
+   </property>
+  </action>
+  <action name="actionSpring">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/SPRING_icon.png</normaloff>:/rec/resource/icons/SPRING_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Spr&amp;ing</string>
+   </property>
+  </action>
+  <action name="actionCool">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/COOL_icon.png</normaloff>:/rec/resource/icons/COOL_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Cool</string>
+   </property>
+  </action>
+  <action name="actionHSV">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/HSV_icon.png</normaloff>:/rec/resource/icons/HSV_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;HSV</string>
+   </property>
+  </action>
+  <action name="actionPink">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/PINK_icon.png</normaloff>:/rec/resource/icons/PINK_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Pink</string>
+   </property>
+  </action>
+  <action name="actionHot">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/HOT_icon.png</normaloff>:/rec/resource/icons/HOT_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Hot</string>
+   </property>
+  </action>
+  <action name="actionColor_Bar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/color-bar-icon.jpg</normaloff>:/rec/resource/icons/color-bar-icon.jpg</iconset>
+   </property>
+   <property name="text">
+    <string>C&amp;olor Bar</string>
+   </property>
+  </action>
+  <action name="actionSelect_Points">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resouce.qrc">
+     <normaloff>:/rec/resource/icons/mouse_icon.png</normaloff>:/rec/resource/icons/mouse_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Select Points</string>
+   </property>
+  </action>
+  <action name="actionAuto">
+   <property name="text">
+    <string>&amp;Auto</string>
+   </property>
+  </action>
+  <action name="actionManual">
+   <property name="text">
+    <string>&amp;Manual</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QVTKWidget</class>
+   <extends>QWidget</extends>
+   <header>QVTKWidget.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="resouce.qrc"/>
+ </resources>
+ <connections/>
+</ui>

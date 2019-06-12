@@ -1,0 +1,36 @@
+<RCC>
+    <qresource prefix="/rec">
+        <file>resource/icons/about-icon.png</file>
+        <file>resource/icons/back-view-icon.png</file>
+        <file>resource/icons/bottom-view-icon.png</file>
+        <file>resource/icons/export-as-csv-icon.png</file>
+        <file>resource/icons/front-view-icon.png</file>
+        <file>resource/icons/import-frame-icon.png</file>
+        <file>resource/icons/left-view-icon.png</file>
+        <file>resource/icons/open-file-icon.png</file>
+        <file>resource/icons/perspective-view-icon.png</file>
+        <file>resource/icons/rgb-icon.jpeg</file>
+        <file>resource/icons/right-view-icon.png</file>
+        <file>resource/icons/temperature-icon.jpeg</file>
+        <file>resource/icons/top-view-icon.png</file>
+        <file>resource/icons/exit-icon.png</file>
+        <file>resource/icons/pause-button-icon.png</file>
+        <file>resource/icons/play-button-icon.png</file>
+        <file>resource/icons/previous-button-icon.png</file>
+        <file>resource/icons/next-button-icon.png</file>
+        <file>resource/icons/color-bar-icon.jpg</file>
+        <file>resource/icons/AUTUMN_icon.png</file>
+        <file>resource/icons/WINTER_icon.png</file>
+        <file>resource/icons/SUMMER_icon.png</file>
+        <file>resource/icons/SPRING_icon.png</file>
+        <file>resource/icons/RAINBOW_icon.png</file>
+        <file>resource/icons/PINK_icon.png</file>
+        <file>resource/icons/OCEAN_icon.png</file>
+        <file>resource/icons/JET_icon.png</file>
+        <file>resource/icons/HSV_icon.png</file>
+        <file>resource/icons/HOT_icon.png</file>
+        <file>resource/icons/COOL_icon.png</file>
+        <file>resource/icons/BONE_icon.png</file>
+        <file>resource/icons/mouse_icon.png</file>
+    </qresource>
+</RCC>
